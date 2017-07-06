@@ -1,7 +1,0 @@
----
-# ensure newer image with latest tag will be pulled
-- name: pull images
-  shell: 'docker-compose -f {{ dc_compose_file_dest }} pull'
-
-- name: deploy containers
-  shell: 'docker-compose -f {{ dc_compose_file_dest }} up -d'
