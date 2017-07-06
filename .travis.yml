@@ -13,6 +13,8 @@ install:
   - printf '[defaults]\nroles_path=../' > ansible.cfg
 
 script:
+  - mkdir -p ../m31271n.docker-compose/tasks
+  - touch ../m31271n.docker-compose/tasks/main.yml
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 
