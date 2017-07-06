@@ -1,0 +1,15 @@
+---
+- name: ensure {{ dc_dest_dir }} is present
+  file:
+    path: '{{ dc_dest_dir }}'
+    state: directory
+    mode: 0755
+
+- name: ensure {{ dc_compose_file_dest }} is placed
+  copy:
+    src: '{{ dc_compose_file_src }}'
+    dest: '{{ dc_compose_file_dest }}'
+    validate: 'docker-compose -f %s config -q'
+  notify:
+    - pull images
+    - deploy containers
