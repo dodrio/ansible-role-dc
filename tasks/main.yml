@@ -9,11 +9,11 @@
   copy:
     src: '{{ dc_compose_file_src }}'
     dest: '{{ dc_compose_file_dest }}'
-    validate: 'docker-compose -f %s config -q'
+    validate: '{{ dc_compose_bin }} -f %s config -q'
 
 # ensure newer image with latest tag will be pulled
 - name: pull images
-  shell: 'docker-compose -f {{ dc_compose_file_dest }} pull'
+  shell: '{{ dc_compose_bin }} -f {{ dc_compose_file_dest }} pull'
 
 - name: deploy containers
-  shell: 'docker-compose -f {{ dc_compose_file_dest }} up -d'
+  shell: '{{ dc_compose_bin }} -f {{ dc_compose_file_dest }} up -d'
