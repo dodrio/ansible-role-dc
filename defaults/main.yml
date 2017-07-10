@@ -1,4 +1,5 @@
 ---
+dc_compose_bin: docker-compose
 dc_dest_dir: /srv/example
 dc_compose_file_src: '{{ playbook_dir }}/files/dc/docker-compose.yml'
 dc_compose_file_dest: '{{ dc_dest_dir }}/docker-compose.yml'

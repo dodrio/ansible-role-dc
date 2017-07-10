@@ -11,6 +11,7 @@ Ansible role to deploy containers via docker-compose.
 
 ## Role Variables
 
++ `dc_compose_bin`: `docker-compose`
 + `dc_dest_dir`: `/srv/example`
 + `dc_compose_file_src`: `'{{ playbook_dir }}/files/dc/docker-compose.yml'`
 + `dc_compose_file_dest`: `'{{ dc_dest_dir }}/docker-compose.yml'`
@@ -25,6 +26,7 @@ Ansible role to deploy containers via docker-compose.
 - hosts: servers
   roles:
     - role: m31271n.dc
+      dc_compose_bin: /usr/local/bin/docker-compose
       dc_dest_dir: /srv/project
       dc_compose_file_src: '{{ playbook_dir }}/files/dc/project.yml'
 ```
