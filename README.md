@@ -28,6 +28,8 @@ Ansible role to deploy containers via docker-compose.
     - role: m31271n.dc
       dc_compose_bin: /usr/local/bin/docker-compose
       dc_dest_dir: /srv/project
+      dc_asset_files:
+        - { src: 'config.json', dest: '{{ dc_dest_dir }}/config.json' }
       dc_compose_file_src: '{{ playbook_dir }}/files/dc/project.yml'
 ```
 

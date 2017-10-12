@@ -11,6 +11,12 @@
     dest: '{{ dc_compose_file_dest }}'
     validate: '{{ dc_compose_bin }} -f %s config -q'
 
+- name: ensure asset files is placed
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+  with_items: '{{ dc_asset_files }}'
+
 # ensure newer image with latest tag will be pulled
 - name: pull images
   shell: '{{ dc_compose_bin }} -f {{ dc_compose_file_dest }} pull'
